@@ -1,0 +1,21 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+<SOAP-ENV:Header/>
+<SOAP-ENV:Body>
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+ xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+ AssertionConsumerServiceURL="{0}"
+ Destination="{1}"
+ ID="{2}"
+ IssueInstant="{3}"
+ ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
+ Version="2.0">
+<saml:Issuer Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">{4}</saml:Issuer>
+<samlp:Scoping>
+<samlp:IDPList>
+<samlp:IDPEntry Loc="{5}" ProviderID="{6}"/>
+</samlp:IDPList>
+<samlp:RequesterID>{7}</samlp:RequesterID>
+</samlp:Scoping>
+</samlp:AuthnRequest>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

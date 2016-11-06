@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Package: org.verohallinto.apitamoclient.ui
+Main-Class: org.verohallinto.apitamoclient.ui.ApitamoClientUI

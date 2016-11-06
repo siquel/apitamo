@@ -1,0 +1,4 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://www.vero.fi/xmlschema/ApiTaMo">
+<SOAP-ENV:Body><tns:parseData><ilmoitus></ilmoitus><kieli>{0}</kieli><tyyppi>{1}</tyyppi><liitteet>{2}</liitteet><email>{3}</email></tns:parseData>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
