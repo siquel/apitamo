@@ -6,9 +6,12 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.verohallinto.apitamoclient.apu.Apuri;
+import org.verohallinto.apitamoclient.apu.LuokkaApu;
+
 /**
  * <p>
- * Staattisia apumetodeja jar-paketin sis�isten tiedostojen k�sittelyyn.
+ * Staattisia apumetodeja jar-paketin sisäisten tiedostojen käsittelyyn.
  * </p>
  * (c) 2013 Tietokarhu Oy
  * <p/>
@@ -48,8 +51,8 @@ public class TiedostoApu {
    * </p>
    *
    * @param tiedosto
-   *          {@code String} etsitt�v� tiedosto.
-   * @return Tiedoston sis�lt� merkkijonona, jos l�ytyi, muuten null.
+   *          {@code String} etsittävä tiedosto.
+   * @return Tiedoston sisältö merkkijonona, jos löytyi, muuten null.
    */
   public static String luePolusta(final String tiedosto) {
 

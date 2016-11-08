@@ -2,7 +2,7 @@ package org.verohallinto.apitamoclient.ui;
 
 import org.verohallinto.apitamoclient.ApitamoClient;
 import org.verohallinto.apitamoclient.dto.*;
-import org.verohallinto.apitamoclient.ui.apu.Apuri;
+import org.verohallinto.apitamoclient.apu.Apuri;
 import org.verohallinto.apitamoclient.ui.yleiset.Vakiot;
 import org.verohallinto.apitamoclient.ui.yleiset.props;
 

@@ -1,14 +1,14 @@
 package org.verohallinto.apitamoclient.ui.yleiset;
 
-import org.verohallinto.apitamoclient.ui.apu.Apuri;
-import org.verohallinto.apitamoclient.ui.apu.TiedostoApu;
-
 import java.io.File;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.verohallinto.apitamoclient.apu.Apuri;
+import org.verohallinto.apitamoclient.ui.apu.TiedostoApu;
 
 /**
  * <p>
