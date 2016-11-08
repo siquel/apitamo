@@ -1,5 +1,7 @@
 #APITAMOCLIENT 
 
+[![Build Status](https://travis-ci.org/siren/apitamo.svg?branch=master)](https://travis-ci.org/siren/apitamo)
+
 ##Yleiskuvaus
 Tässä dokumentissa on kuvattu Ilmoitin.fi-palvelun ApiTaMo Web Service –rajapinnan käytön helpottamiseksi
 toteutetun ApiTaMoClient –sovelluksen toiminta. Dokumentin tarkoitus on auttaa hyödyntäviä tahoja
