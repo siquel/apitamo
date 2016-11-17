@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * Katso-sis��nkirjautumistiedot.
+ * Katso-sisäänkirjautumistiedot.
  * </p>
  * (c) 2014 Tietokarhu Oy
  * <p/>
@@ -17,11 +17,11 @@ public class KatsoInDto implements Serializable {
 
   private static final long serialVersionUID = -2789820328087434310L;
 
-  // n�m� asetettava ennen tunnistautumista
+  // nämä asetettava ennen tunnistautumista
   private String kieli; // Ilmoitusten kieli (fi, sv tai en)
-  private int tunnistustapa; // Tunnistautumisessa k�ytett�v� menetelm� esim.
+  private int tunnistustapa; // Tunnistautumisessa käytettävä menetelmä esim.
                              // Katso PWD tai Katso-OTP
-  private String kayttajatunnus; // Katso k�ytt�j�tunnus
+  private String kayttajatunnus; // Katso käyttäjätunnus
   private String salasana; // Katso-salasana
   private String otpSalasana; // Vaihtuva otp-salasana
 
@@ -29,14 +29,14 @@ public class KatsoInDto implements Serializable {
   private String SASLURL; // SASL palvelun osoite
   private String WSIDPURL; // WSIDP palvelun osoite
   private String APITAMOURL; // APITAMO palvelun osoite
-  private boolean logMessages; // Lokitetaanko l�hetett�v�t ja vastaanotettavat
+  private boolean logMessages; // Lokitetaanko lähetettävät ja vastaanotettavat
                                // sanomat
   private String messageDirectory; // Hakemisto johon sanomat kirjoitetaan
 
   // Tamo tarkastustulos purku
   private boolean puraTamoTulos; // Puretaanko TaMon tarkastustulos listaksi
 
-  // sis�iseen k�ytt��n
+  // sisäiseen käyttöön
   private SOAPElement saslAssertion; // SASLRespond-sanoman
                                      // 'saml:Assertion'-elementti
   private SOAPMessage message; // ApiTaMolta saatu AuthnRequest sanoma
