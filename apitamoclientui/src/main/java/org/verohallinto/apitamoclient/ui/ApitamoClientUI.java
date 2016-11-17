@@ -4,7 +4,7 @@ import org.verohallinto.apitamoclient.ApitamoClient;
 import org.verohallinto.apitamoclient.dto.*;
 import org.verohallinto.apitamoclient.apu.Apuri;
 import org.verohallinto.apitamoclient.ui.yleiset.Vakiot;
-import org.verohallinto.apitamoclient.ui.yleiset.props;
+import org.verohallinto.apitamoclient.ui.yleiset.Props;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -26,15 +26,15 @@ public class ApitamoClientUI {
     ApitamoOutDto apitamoOut;
 
     // luetaan propertyt
-    props.alusta();
+    Props.alusta();
 
     // Alustetaan lähetystiedot
-    katsoIn.setSASLURL(props.anna(Vakiot.KATSO_SASL_URL));
-    katsoIn.setWSIDPURL(props.anna(Vakiot.KATSO_WSIDP_URL));
-    katsoIn.setAPITAMOURL(props.anna(Vakiot.APITAMO_URL));
-    katsoIn.setLogMessages(props.lokitaSanomat());
-    katsoIn.setMessageDirectory(props.annaSanomaHakemisto());
-    katsoIn.setPuraTamoTulos(props.puraTamoTulos());
+    katsoIn.setSASLURL(Props.anna(Vakiot.KATSO_SASL_URL));
+    katsoIn.setWSIDPURL(Props.anna(Vakiot.KATSO_WSIDP_URL));
+    katsoIn.setAPITAMOURL(Props.anna(Vakiot.APITAMO_URL));
+    katsoIn.setLogMessages(Props.lokitaSanomat());
+    katsoIn.setMessageDirectory(Props.annaSanomaHakemisto());
+    katsoIn.setPuraTamoTulos(Props.puraTamoTulos());
 
     do {
       try {
@@ -54,7 +54,7 @@ public class ApitamoClientUI {
               System.out.println("Tunnistautunut henkilo: " + katsoOut.getTfiPersonname());
               System.out.println("Katso ID: " + katsoOut.getTfiKid());
               System.out.println("Katso versio: " + katsoOut.getTfiVersion());
-              System.out.println("Sanomat kirjoitettu hakemistoon: " + props.annaSanomaHakemisto());
+              System.out.println("Sanomat kirjoitettu hakemistoon: " + Props.annaSanomaHakemisto());
             } else {
               System.out.println("Tunnistautuminen epaonnistui.");
               System.out.println("Syy: " + katsoOut.getVirhe());
@@ -65,7 +65,7 @@ public class ApitamoClientUI {
               katsoOut = tunnistaudu(katsoIn);
 
               if (katsoOut != null) {
-                System.out.println("Sanomat kirjoitettu hakemistoon: " + props.annaSanomaHakemisto());
+                System.out.println("Sanomat kirjoitettu hakemistoon: " + Props.annaSanomaHakemisto());
               }
             } else {
               // käyttäjä on tunnistautunut mutta tutkitaan että assertio on
@@ -78,7 +78,7 @@ public class ApitamoClientUI {
                 katsoOut = tunnistaudu(katsoIn);
 
                 if (katsoOut != null) {
-                  System.out.println("Sanomat kirjoitettu hakemistoon: " + props.annaSanomaHakemisto());
+                  System.out.println("Sanomat kirjoitettu hakemistoon: " + Props.annaSanomaHakemisto());
                 }
               }
             }
@@ -101,7 +101,7 @@ public class ApitamoClientUI {
                   } else {
                     System.out.println("Aineistoa ei vastaanotettu. Syy: " + apitamoOut.getInfo());
 
-                    if (props.puraTamoTulos() && (apitamoOut.getTamoTulos().getLomakkeet() != null
+                    if (Props.puraTamoTulos() && (apitamoOut.getTamoTulos().getLomakkeet() != null
                         && apitamoOut.getTamoTulos().getLomakkeet().size() > 0)) {
 
                       for (LomakeDto lomake : apitamoOut.getTamoTulos().getLomakkeet()) {
@@ -151,7 +151,7 @@ public class ApitamoClientUI {
               katsoOut = tunnistaudu(katsoIn);
 
               if (katsoOut != null) {
-                System.out.println("Sanomat kirjoitettu hakemistoon: " + props.annaSanomaHakemisto());
+                System.out.println("Sanomat kirjoitettu hakemistoon: " + Props.annaSanomaHakemisto());
               }
             } else {
               // käyttäjä on tunnistautunut mutta tutkitaan että assertio on
@@ -164,7 +164,7 @@ public class ApitamoClientUI {
                 katsoOut = tunnistaudu(katsoIn);
 
                 if (katsoOut != null) {
-                  System.out.println("Sanomat kirjoitettu hakemistoon: " + props.annaSanomaHakemisto());
+                  System.out.println("Sanomat kirjoitettu hakemistoon: " + Props.annaSanomaHakemisto());
                 }
               }
             }
@@ -179,7 +179,7 @@ public class ApitamoClientUI {
                   } else {
                     System.out.println("Nouto onnistui.");
 
-                    if (props.puraTamoTulos()) {
+                    if (Props.puraTamoTulos()) {
                       System.out.println("Ilmoituksia noudettiin " + apitamoOut.getIlmoitukset().size() + " kpl.");
                       System.out.println("");
                       for (String ilmoitus : apitamoOut.getIlmoitukset()) {
@@ -509,7 +509,7 @@ public class ApitamoClientUI {
         return null;
       }
 
-      // kysell��n email
+      // kysellään email
       System.out.println(
           "Jos olet lahettamassa palautettavaa aineistoa voit saada sahkopostiisi ilmoituksen aineiston valmistuttua.");
       System.out.println(

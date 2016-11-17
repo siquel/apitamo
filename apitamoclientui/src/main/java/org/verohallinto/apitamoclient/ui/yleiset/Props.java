@@ -15,8 +15,8 @@ import org.verohallinto.apitamoclient.ui.apu.TiedostoApu;
  * </p>
  * (c) 2014 Tietokarhu Oy Date: 26.6.2014 - 10:18 $Rev$
  */
-public class props {
-  private static final Logger log = Logger.getLogger(props.class.getName());
+public class Props {
+  private static final Logger log = Logger.getLogger(Props.class.getName());
   private static String sovellusId;
 
   // Tunnistustapakohtaiset tiedot
@@ -35,7 +35,7 @@ public class props {
     lueProperties(sovellusId);
   }
 
-  private props() {
+  private Props() {
 
   }
 

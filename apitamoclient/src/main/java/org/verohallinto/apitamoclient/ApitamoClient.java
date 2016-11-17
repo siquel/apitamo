@@ -22,12 +22,12 @@ public class ApitamoClient {
   }
 
   /**
-   * Katso-sis��nkirjautumisen objektirajapinta.
+   * Katso-sisäänkirjautumisen objektirajapinta.
    * </p>
    *
    * @param in
-   *          {@code KatsoInDto} sis��nkirjautumistiedot.
-   * @return true = kirjautuminen onnistui, false = kirjautuminen ep�onnistui.
+   *          {@code KatsoInDto} sisäänkirjautumistiedot.
+   * @return true = kirjautuminen onnistui, false = kirjautuminen epäonnistui.
    */
   public static KatsoOutDto katsoSisaan(final KatsoInDto in) {
 
@@ -45,7 +45,7 @@ public class ApitamoClient {
 
     try {
       tarkastaKatso(in);
-      // Kirjaudutaan sis��n
+      // Kirjaudutaan sisään
       Kirjaudu.sisaan(katso);
     } catch (Exception e) {
       katso.getOut().setVirhe(e.getMessage());
@@ -62,11 +62,11 @@ public class ApitamoClient {
   }
 
   /**
-   * Ilmoitusten l�hetys Apitamolle.
+   * Ilmoitusten lähetys Apitamolle.
    * </p>
    *
    * @param in
-   *          {@code ApitamoInDto} L�hetett�v�t tiedot
+   *          {@code ApitamoInDto} Lähetettävät tiedot
    * @return {@code ApitamoOutDto} ApiTaMon vastaus
    */
   public static ApitamoOutDto Laheta(ApitamoInDto in) {
@@ -83,14 +83,14 @@ public class ApitamoClient {
     }
 
     if (in.getSuunta() != Vakiot.SUUNTA_LAHETYS && in.getSuunta() != Vakiot.SUUNTA_NOUTO) {
-      // oletuksen l�hetell��n tietoa
+      // oletuksen lähetellään tietoa
       in.setSuunta(Vakiot.SUUNTA_LAHETYS);
     }
 
     try {
       tarkastaLahetysTiedot(apitamo);
 
-      // Hoidetaan l�hetys
+      // Hoidetaan lähetys
       SoapVastausDto vastaus = Apitamo.laheta(apitamo);
 
       if (vastaus.onOk()) {
@@ -105,11 +105,11 @@ public class ApitamoClient {
   }
 
   /**
-   * Sis��nkirjautumistietojen tarkastus.
+   * Sisäänkirjautumistietojen tarkastus.
    * </p>
    *
    * @param apitamo
-   *          {@code ApitamoDto} L�hetyksen tiedot.
+   *          {@code ApitamoDto} Lähetyksen tiedot.
    * @return {@code boolean} true = tiedot ok, muuten false
    */
   private static boolean tarkastaLahetysTiedot(final ApitamoDto apitamo) {
@@ -130,11 +130,11 @@ public class ApitamoClient {
   }
 
   /**
-   * Sis��nkirjautumistietojen tarkastus.
+   * Sisäänkirjautumistietojen tarkastus.
    * </p>
    *
    * @param in
-   *          {@code KatsoInDto} sis��nkirjautumistiedot.
+   *          {@code KatsoInDto} sisäänkirjautumistiedot.
    * @throws RuntimeException
    *           Kirjautumistiedot virheelliset.
    */
@@ -147,7 +147,7 @@ public class ApitamoClient {
           || (in.getTunnistustapa() == Vakiot.KATSO_OTP && Apuri.onTyhja(in.getOtpSalasana()))) {
 
         String ex = "Virheelliset tunnistautumistiedot:" + ", tunnistustapa=" + annaTapa(in.getTunnistustapa(), ttOk)
-            + ", k�ytt�j�tunnus=" + annaPakollinen(in.getKayttajatunnus()) + ", salasana="
+            + ", käyttäjätunnus=" + annaPakollinen(in.getKayttajatunnus()) + ", salasana="
             + annaSalasana(in.getSalasana());
 
         if (in.getTunnistustapa() == Vakiot.KATSO_OTP) {
@@ -159,7 +159,7 @@ public class ApitamoClient {
         throw new RuntimeException(ex);
       }
     } else {
-      // txt.018=Tunnistautumistiedot on tyhj�.
+      // txt.018=Tunnistautumistiedot on tyhjä.
       throw new RuntimeException(Props.teksti(Vakiot.OLETUSKIELI, 18));
     }
 
