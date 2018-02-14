@@ -167,11 +167,13 @@ public class SanomaApu {
       try {
         // Muodostetaan SOAP-sanoma
         final SOAPMessage message = MessageFactory.newInstance().createMessage();
-        // Muodostetaan viestin sis�lt� lataamalla muokattu sis�lt�
+        // mimic writeTo() behaviour and append header so
+        // sending requests works without logging
+        message.getMimeHeaders().addHeader("SOAPAction", "\"\"");
+        // Muodostetaan viestin sisältö lataamalla muokattu sisältö
         // SOAP-sanomaan
         final SOAPPart part = message.getSOAPPart();
         part.setContent(new StreamSource(new ByteArrayInputStream(sanoma.getBytes())));
-
         return message;
       } catch (Exception e) {
         log.severe(Apuri.annaPoikkeus(e));
