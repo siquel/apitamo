@@ -66,6 +66,7 @@ public class Apitamo {
   private static final String XPATH_VIRHERIVI_RIVINRO = "@rivinro";
   private static final String XPATH_VIRHERIVI_TIETO = "Tieto/text()";
   private static final String XPATH_VIRHERIVI_SELITYS = "Selitys/text()";
+  private static final String XPATH_VIRHERIVI_LAJI = "@laji";
 
   // Liitteet
   private static final String XPATH_LIITEET = "ApiTaMoTulos/kuittaus/liitteet/liite";
@@ -80,7 +81,7 @@ public class Apitamo {
   private static final String XPATH_NOUTO_INFO = "Vastaus/info/text()";
 
   /**
-   * Apitamo-sanoman XPath-k�sittelyss� k�ytett�v�t Namespace-m��ritykset
+   * Apitamo-sanoman XPath-käsittelyssä käytettävät Namespace-määritykset
    */
   private static final Nimiavaruus NAMESPACE_CONTEXT;
 
@@ -462,7 +463,7 @@ public class Apitamo {
             rivi.setRivinro(xp.evaluate(XPATH_VIRHERIVI_RIVINRO, n2));
             rivi.setTieto(xp.evaluate(XPATH_VIRHERIVI_TIETO, n2));
             rivi.setSelitys(xp.evaluate(XPATH_VIRHERIVI_SELITYS, n2));
-
+            rivi.setLaji(xp.evaluate(XPATH_VIRHERIVI_LAJI, n2));
             virheRivit.add(rivi);
           }
           lomake.setVirheet(virheRivit);

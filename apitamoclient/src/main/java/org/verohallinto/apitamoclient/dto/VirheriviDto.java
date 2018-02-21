@@ -14,6 +14,7 @@ public class VirheriviDto {
   private String rivinro; // rivinro, jolta virhe löytyy
   private String tieto; // Virheellinen tieto
   private String selitys; // Virheselite
+  private String laji; // Virheen laji
 
   public String getTunnus() {
     return tunnus;
@@ -47,9 +48,17 @@ public class VirheriviDto {
     this.selitys = selitys;
   }
 
+  public String getLaji() {
+    return laji;
+  }
+
+  public void setLaji(String laji) {
+    this.laji = laji;
+  }
+
   @Override
   public String toString() {
     return "VirheriviDto{" + Vakiot.SYS_LF + "tunnus='" + tunnus + '\'' + Vakiot.SYS_LF + "rivinro=" + rivinro
-        + Vakiot.SYS_LF + "tieto=" + tieto + Vakiot.SYS_LF + "selitys=" + selitys + Vakiot.SYS_LF + '}';
+        + Vakiot.SYS_LF + "tieto=" + tieto + Vakiot.SYS_LF + "selitys=" + selitys + Vakiot.SYS_LF + "laji=" + laji + Vakiot.SYS_LF + '}';
   }
 }
