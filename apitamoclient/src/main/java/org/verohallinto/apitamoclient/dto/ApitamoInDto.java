@@ -1,5 +1,6 @@
 package org.verohallinto.apitamoclient.dto;
 
+import org.verohallinto.apitamoclient.apu.IAttachment;
 import org.verohallinto.apitamoclient.yleiset.Vakiot;
 
 import javax.xml.soap.SOAPElement;
@@ -15,7 +16,7 @@ public class ApitamoInDto {
 
   private byte[] data; // ilmoitusdata
   private SOAPElement assertion; // tunnistuksesta saatu assertio
-  private Vector<String> liiteTiedostot; // liitetiedostot
+  private Vector<IAttachment> liiteTiedostot; // liitetiedostot
   private int suunta; // lähetyksen tyyppi 1 = aineiston lähetys, 2 =
                       // palautettavan aineiston nouto
   private String kieli; // Kieli, jolla vastaukset halutaan
@@ -40,11 +41,11 @@ public class ApitamoInDto {
     this.assertion = assertion;
   }
 
-  public Vector<String> getLiiteTiedostot() {
+  public Vector<IAttachment> getLiiteTiedostot() {
     return liiteTiedostot;
   }
 
-  public void setLiiteTiedostot(Vector<String> liiteTiedostot) {
+  public void setLiiteTiedostot(Vector<IAttachment> liiteTiedostot) {
     this.liiteTiedostot = liiteTiedostot;
   }
 

@@ -1,6 +1,7 @@
 package org.verohallinto.apitamoclient.katso.sanoma;
 
 import org.verohallinto.apitamoclient.apu.Apuri;
+import org.verohallinto.apitamoclient.apu.IAttachment;
 import org.verohallinto.apitamoclient.apu.LokiApu;
 import org.verohallinto.apitamoclient.apu.SanomaApu;
 import org.verohallinto.apitamoclient.dto.*;
@@ -339,17 +340,12 @@ public class Apitamo {
       if (apitamo.getIn().getSuunta() == Vakiot.SUUNTA_LAHETYS && apitamo.getIn().getLiiteTiedostot().size() > 0) {
         DataHandler dataHandler = null;
         AttachmentPart attachment = null;
-        String filename = "";
-        File file = null;
 
-        for (String liite : apitamo.getIn().getLiiteTiedostot()) {
-          dataHandler = new DataHandler(new FileDataSource(liite));
+        for (IAttachment liite : apitamo.getIn().getLiiteTiedostot()) {
+          dataHandler = new DataHandler(liite.getDataSource());
           attachment = sanoma.createAttachmentPart(dataHandler);
 
-          file = new File(liite);
-          filename = file.getName();
-
-          attachment.setContentId(filename);
+          attachment.setContentId(liite.getFilename());
           attachment.setContentType("application/pdf");
           sanoma.addAttachmentPart(attachment);
         }

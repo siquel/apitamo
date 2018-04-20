@@ -74,7 +74,7 @@ public class Kirjaudu {
     dto.setData("tyhja".getBytes());
     dto.setAssertion(null);
     dto.setKieli("fi");
-    dto.setLiiteTiedostot(new Vector<String>());
+    dto.setLiiteTiedostot(new Vector<>());
     dto.setSuunta(1);
 
     return dto;
